@@ -24,7 +24,7 @@ end
 execute 'start-runsvdir' do
   command value_for_platform(
     'debian' => { 'default' => 'runsvdir-start' },
-    'ubuntu' => { 'default' => 'start runsvdir' },
+    'ubuntu' => { 'default' => 'echo $USER' },
     'gentoo' => { 'default' => '/etc/init.d/runit-start start' }
   )
   user 'root'# if node['platform'] =~ /ubuntu/i && node['platform_version'].to_f >= 14.04
