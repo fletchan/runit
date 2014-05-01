@@ -27,6 +27,7 @@ execute 'start-runsvdir' do
     'ubuntu' => { 'default' => 'start runsvdir' },
     'gentoo' => { 'default' => '/etc/init.d/runit-start start' }
   )
+  user 'root' if node['platform'] =~ /ubuntu/i && node['platform_version'].to_f >= 14.04
   action :nothing
 end
 
